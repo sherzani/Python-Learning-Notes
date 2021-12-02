@@ -1,0 +1,686 @@
+import random
+
+#print("Hello")
+
+# indentation is used to indicate scope. You can use as many spaces as you want but 
+# just be sure to use the same number of spaces in the same block of code
+#if 3 < 5:
+#    print("yes")
+
+# Comments
+# Another way to do multiple comments besides # on multiple lines since empty string literals are ignored
+'''
+This is a comment
+'''
+########################################################################################################################
+# Variables
+# There's no need to declare variables before using them 
+x = 5
+
+# Rules for variable names
+# must start with letter or underscore
+# cannot start with a number
+# can only contain alpha-numeric characters and underscores (A-Z, a-z, 0-9)
+# variables are case-sensitive
+
+# Legal names
+_n = 4
+t45 = 45
+AGE = 2
+age = 2
+
+# assign value to multiple variables 
+x, y, z = "red", "yellow", "green"
+
+# assign one value to multiple vars
+x = y = z = "you're soo cool"
+
+# printing a string variable 
+x = "Ohh shakespeare thou art the apple to thine eye"
+# print("He said " + x)
+
+# printing two integer vars
+x = 4
+y = 5
+# print(x + y)
+
+# combining a string and an integer will give you an error
+x = 5
+y = "John"
+# print(x + y)
+
+# Global Vars
+# all vars above vcan be used inside and outside the function 
+# if a local and global var have the same name inside the function, the local var will be used
+x = "awesome"
+
+def myfunc():
+  x = "fantastic"
+  print("Python is " + x)
+
+# myfunc()
+
+# print("Python is " + x)
+
+# you can declare a var with global scope inside a function by using the global keyword
+# you can also change the value of a global variable by using the global keyword
+
+def myfunc2():
+  global x
+  x = "fantastic"
+
+myfunc2()
+
+# print("Python is " + x)
+
+########################################################################################################################
+
+# Built-in Datatypes
+
+# the data type is set when you assign a value to a var
+# The most important data-types
+
+# Text Type: str
+x = "Hello"
+
+# Numeric types: int, float, complex
+# j is tagged along to the number
+x = 3j
+
+# Sequence types: list, tuple, range
+# list
+x = ["apple", "banana", "cherry"]
+
+# tuple
+x = ("apple", "banana", "cherry")
+
+# range: used in loops
+x = range(6)
+
+# Mapping type
+x = {"name" : "John", "age" : 36}
+
+# Set types: set, frozenset
+# set
+x = {"apple", "banana", "cherry"}
+
+# frozenset
+x = frozenset({"apple", "banana", "cherry"})
+
+# Boolean type: bool
+x = True
+
+# Binary type: bytes, bytearray, memoryview
+
+# you can also set a specific datatype
+
+x = list(("apple", "banana", "cherry"))
+x = tuple(("apple", "banana", "cherry"))
+x = dict(name="John", age=36)
+x = set(("apple", "banana", "cherry"))
+
+# etc. 
+
+# checking type
+# print(type(x))
+
+########################################################################################################################
+
+# Conversions
+# to convert from one type to another, use float(), int(), complex()
+
+########################################################################################################################
+
+# Random number
+# use the random module
+
+# include "import random" on top of the file
+# prints 1 - 9
+# print(random.randrange(1,10))
+
+########################################################################################################################
+
+# Python casting
+# int()
+x = int("4")
+x = int(3.145)
+x = int(1)
+
+# and also float(), str()
+
+########################################################################################################################
+
+# Python strings
+
+# multiline strings
+x = '''hello there sdjfhss
+sdkfjhskj'''
+
+# strings are arrays
+# to access a single char
+x = 'hello'
+# print(x[0])
+
+# to access range of chars, use slice, lower up to range
+# negative indexing to start at the end of the string
+# print(x[0:3]) 
+
+# len()
+x = len(x)
+# print(x)
+
+# many built-in methods for string
+# All string methods return new values and also do not change the original string.
+
+# check a string 
+# in  
+txt = "The rain in Spain stays mainly in the plain"
+x = "ain" in txt
+# print(x) # True
+
+# not in
+txt = "The rain in Spain stays mainly in the plain"
+x = "ain" not in txt
+# print(x)  # False
+
+# to add a space bw two words 
+x = "Oh,"
+y = "my!"
+z = x + " " + y 
+
+# remember, we cannot combine numbers and text like this ^
+# use format method which takes unlimited args 
+age = 36
+txt = "My name is John, and I am {}"
+# print(txt.format(age))
+
+year = 2015
+brand = 4
+txt = "my car is from {} and the brand is {}."
+# print(txt.format(year, brand))
+
+# can also index where each arg goes
+year = 2015
+brand = 4
+txt = "my car is from {0} and the brand is {1}. In {0}, I wasn't sure I could afford it but now I can."
+# print(txt.format(year, brand))
+
+# use escape chars when you need to use specil chars such as "" / etc.
+
+########################################################################################################################
+
+# Booleans
+
+# to evaluate values 
+# print(bool("hello"))
+
+# when evaluating, an empty bool, empty strings and 0 are false
+# this applies to any list, tuple, set and dictionary (), [], {}
+# False evaluates to False
+# print(bool()) # false
+# print(bool("")) # false
+
+# if you have an object made from a class with a _len_ function that returns 0 or False
+class myclass():
+  def _len_(self):
+    return 0
+
+# print(bool(myclass()))
+
+# you can use function results like this and return True or False like other PLs
+#if myclass():
+ # print("oh dang")
+
+########################################################################################################################
+
+# Operators (+,-,/,*,%)
+# these two operators are different from Java 
+
+# expoentiation
+x = 3
+y = 2
+# print(x ** y)
+
+# floor division which rounds result to closest whole number
+x = 13
+y = 3
+# print(x // y)
+
+# Assignment operators (=, +=, -=, /=, *=, **=, //=, %=)
+# these are new 
+
+# &= operator copies the bit to result if it exists in both operands 
+
+# |= includes bit in result if it exists in either operand
+
+# <<= binary left shift. left operand's bits are moved by the value in the second operand
+ 
+# >>= binary right shift. same as above but switch the operands
+
+# ^= copies bits in result if only one of the operand XOR
+
+
+# Python logical operators 
+
+# and is the same as && 
+# or is the same as ||
+# not is the same as !
+
+# Identity operators 
+
+# is 
+# is not
+
+# Membership operators
+# in 
+x=["orange", "green", "yellow"]
+# if "orange" in x:
+#  print("True")
+
+# not in 
+#if not "gray" in x:
+#  print("True")
+
+# Python Bitwise ops are used for BINARY numbers 
+
+# & | ^ ~(NOT)
+# << (left shift)
+# >> (right shift)
+
+########################################################################################################################
+# Python Collections 
+# Four Collection Types in Python 
+########################################################################################################################
+# List's key features:
+# ordered, changeable, allows for duplicate items
+# lists are also used for arrays in Python since there is no built-in support for them
+
+myList = ["erasers", "crayons", "pencils", "bags"]
+
+# access by indexing 
+# print(myList[0])
+
+# use splicing 
+# print(myList[:3]) # prints from first to range-1
+
+# prints from first index (crayons) to end of the list
+# print(myList[1:])
+
+# Remember for indexing 
+# negative indexing means you can start fromtbe end 
+
+# to change a value, use indexing
+myList[0] = "lunch"
+
+# to print the entire list
+# print(myList)
+
+# to loop through the list
+# for x in myList:
+#  print(x)
+
+# to check if item exists in list 
+# if 'bags' in myList:
+#  print("TRUE")
+
+# to add more items to a list
+myList.append("paper")
+
+# to insert at a specific position 
+myList.insert(1, "markers")
+
+# to remove specific item 
+myList.remove("lunch")
+
+# to remove from a specific index 
+# del myList deletes the entire list 
+del myList[0]
+
+# clears content from list
+myList.clear() 
+
+# copying a list 
+# list2 = list1 only copies the reference of list1 to list2. 
+# This means changes made in list1 will not reflect those in list2 
+myListCopy = myList.copy()
+# or 
+myListCopy = list(myList)
+
+# joining two lists into another one
+myListThree = myList + myListCopy
+# or if you want to extend one list
+myList.extend(myListThree)
+
+# many other List methods available
+
+########################################################################################################################
+
+# Tuple
+# ordered, unchangeable, allows duplicate items
+myTuple = ("apples", "oranges", "bananas")
+
+# accessing and joining tuple items in the same way as for Lists
+# items can be changed in the tuple but items cannot be added or removed bc tuples are unchangeable
+
+# to create a tuple with one item, use a comma after the item
+test = ("grapes",)
+
+########################################################################################################################
+
+# Set
+# unordered, unindexed, no duplicate items
+
+mySet = {"apple", "banana", "cherry"}
+# check if item is present
+# print("grapes" in mySet)
+
+# no indexing, so cannot be certain which item you access
+
+# to add one item 
+mySet.add("grapes")
+
+# to add more than one item
+mySet.update(["passionfruit", "watermelon"])
+
+# to remove; raises error if it cannot remove the item specified 
+mySet.remove("passionfruit")
+
+# joining two sets
+mySet2 = ["apple", "orange"]
+mySet3 = mySet.union(mySet2)
+# or 
+mySet.update(mySet2)
+
+# many other methods that can be used as well
+
+########################################################################################################################
+
+# Dictionary
+# unordered, changeable, indexed, no duplicate items
+# have keys and values
+
+myDict = {
+  "brand": "Ford",
+  "model": "mustang",
+  "year": 2015
+}
+
+# access by key name
+# print(myDict["brand"])
+# or 
+# print(myDict.get("brand"))
+
+# change value
+# myDict["year"] = 2017
+
+# loop through all values
+#for x in myDict:
+  #print(myDict[x])
+
+# or use values 
+#for x in myDict.values():
+  #print(x)
+
+# loop through keys and values
+#for x, y in myDict.items():
+#  print(x, y)
+
+# check if key exists
+#if "model" in myDict:
+#  print("TRUE")
+
+# adding a new k/v pair
+myDict["lastNameOwner"] = "Smith"
+
+# several ways to remove a kv pair. Will only share one method here
+del myDict["lastNameOwner"]
+
+# del myDict # removes the entire dictionary
+# clear empties the entire dictionary
+
+# to copy a dictionary
+myDictCopy = myDict.copy()
+
+# or use a constructor 
+myDictCopy = dict(myDict)
+
+# copyDict = dict will only provide a reference of dict to copyDict
+########################################################################################################################
+# Nested dictionaries
+# using a dictionary as a value for another dictionary
+child1 = {
+  "name" : "Emil",
+  "year" : 2004
+}
+child2 = {
+  "name" : "Tobias",
+  "year" : 2007
+}
+child3 = {
+  "name" : "Linus",
+  "year" : 2011
+}
+
+myfamily = {
+  "child1" : child1,
+  "child2" : child2,
+  "child3" : child3
+}
+
+########################################################################################################################
+# if-else statements
+# these statements pretty much the same as for other languages 
+# like other langs, you can have nested statements, just make sure to indent further
+
+x = 20
+y = 4
+#if x < y:
+  #print("x is less than y")
+#elif x > y:
+  #print("x is greater than y") 
+#else:
+  #print("x is equal to y")
+
+# short hand if used if there's only one statement to execute
+#if x == y: print("The numbers are equal")
+
+# short hand if-else statement
+#print("True") if x < y else print("False")
+
+# logical operators such as and 
+a = 3
+b = 5
+#if a < b and a < y:
+#  print("a is the smallest number")
+
+# if statements cannot be empty so, include pass so that Python doesn't raise an error
+if x < y:
+  pass
+
+# while loops are also very similar to other languages
+
+########################################################################################################################
+# for loop 
+# similar to other languages
+
+# used for the collections as shown above
+
+# can be used for looping through characters in a string
+# for x in "tables":
+#  print(x)
+
+# can also use break like similar to other languages 
+fruits = ("apples", "oranges", "bananas")
+# for x in fruits:
+#  print(x)
+#  if x == "apples":
+#    break
+
+# continue
+# or x in fruits:
+#  if x == "oranges":
+#    continue
+#  print(x)
+
+# to loop through a specific number of times use range()
+# to loop through 4 times from 0 - 4 (excluded)
+# for x in range(4):
+#  print(x)
+
+# can also specify numbers in the range (excludes the upper limit)
+#for x in range(2, 4):
+#  print(x)
+
+# change the increment value in range()
+# prints 0 5 10 15
+#for x in range(0, 20, 5):
+#  print(x)
+
+# nested for loops are the same, use pass if necessary
+
+########################################################################################################################
+# Functions
+
+#def my_function(fname, lname):
+#  print(fname + " " + lname)
+
+#my_function("Emil", "Refsnes")
+
+# if you don't know how many args you'll be passed in use * 
+# you can access them like you would a tuple
+def my_function(*kids):
+  pass
+#  print("The youngest child is " + kids[2])
+my_function("Emil", "Tobias", "Linus")
+
+
+# keyword args
+# you can also send kv pairs as args
+def my_function1(child3, child2, child1):
+  pass
+#print("The youngest child is " + child3)
+
+my_function1(child1 = "Emil", child2 = "Tobias", child3 = "Linus")
+
+# arbitrary keyword args
+# use if you don't know how many keyword args are being passed into the function
+# the args can be accessed like a dictionary in the function
+def my_function2(**kid):
+  pass
+  #print("His last name is " + kid["lname"])
+
+my_function2(fname = "Tobias", lname = "Refsnes")
+
+
+# Default parameter values
+def my_function3(country = "Norway"):
+  pass
+  # print("I am from " + country)
+
+my_function3()
+my_function3("Brazil")
+
+# functions can be nested within other functions
+def myfunct():
+  x = 300
+  def myinnerfunc():
+    print(x)
+  myinnerfunc()
+
+
+# can use recursion also 
+
+########################################################################################################################
+# Lambda functions 
+# useful when you need a small function, with lambda, you can make it anonymous 
+# can take any number of args but can only have one expression
+# lambda args : expression
+
+x = lambda a : a * 10
+#print(x(5))
+
+x = lambda a, b : a * b
+#print(x(3, 4))
+
+def myfunc1(n):
+  return lambda a : a * n
+
+mydoubler = myfunc1(2)
+print(mydoubler(11))
+########################################################################################################################
+# Classes/ Objects
+class Person:
+  
+  # _init_function to create an object of the class
+  # all classes will have this function
+  # it is always executed when the class is initated 
+  # it is called automatically the class is being used to create a new object
+  # self is used to access elements of the current instance of the class
+  # the self parameter can be called anything but it should be the first arg in the function(s)
+  def __init__(self, name, age):
+    self.name = name
+    self.age = age
+  
+  def printname(self):
+    print(self.name)
+
+p1 = Person("John", 36)
+
+# accessing an object's property
+print(p1.name)
+print(p1.age)
+
+# modifying a property
+p1.age = 40
+
+# delete properties 
+del p1.age
+
+# or delete the entire object
+del p1
+
+########################################################################################################################
+# Inheritance
+# using the class from the prior section 
+x = Person("John", "Doe")
+x.printname()
+
+# create a child class like this
+# this will have all the methods of the Person class (parent/ base class)
+# use "pass" when you don't want the same properties and methods as the parent/ base class
+class Student(Person):
+  # to override the parent class's constructor, write one in the child class
+  # to keep the parent's constructor, you can call it in this method
+  def __init__(self, fname, lname, year):
+    # which can also be written as 
+    # Person.__init__(self, fname, lname) 
+    # where super() refers to the parent class
+    super().__init__(fname, lname)
+    self.graduationyear = year
+
+  def welcome(self):
+    print("Welcome", self.name, "to the class of", self.graduationyear)
+    
+# you can override the method of the parent class by writing the method with the same name in the child class
+
+########################################################################################################################
+# Modules
+# name for libraries in Python
+
+# you can write your own module and also use it in other files. 
+# the module can contain variables, classes, functions etc.
+# save the file you want to use as a module with a .py file extension 
+# and in another file use at the top
+
+# import myModule
+
+# you can also use an alias for the filename like this 
+# import myModule as M1
+
+# call functions in the module you wrote like this
+# module_name.function_name()
+
+# import a specific dictionary from another file
+# from mymodule import person1
+
+# print (person1["age"])
